@@ -230,3 +230,316 @@ func main() {
     fmt.Println(a.Speak())
 }
 ```
+
+## 2.6 Toán Tử trong Go Lang
+
+Toán tử là các ký hiệu đặc biệt được sử dụng để thực hiện các phép toán trên các biến và giá trị. Trong Go, toán tử được chia thành nhiều loại khác nhau, bao gồm toán tử số học, toán tử so sánh, toán tử logic, toán tử gán, toán tử bitwise, và một số toán tử khác. Bài viết này sẽ cung cấp một cái nhìn tổng quan chi tiết về các loại toán tử trong Go, cùng với các ví dụ minh họa cụ thể.
+
+### 2.6.1 Toán Tử Số Học (Arithmetic Operators)
+
+Toán tử số học được sử dụng để thực hiện các phép toán cơ bản như cộng, trừ, nhân, chia và lấy phần dư.
+
+| Toán Tử | Mô Tả | Ví Dụ |
+|---------|-------|-------|
+| + | Cộng hai toán hạng | A + B |
+| - | Trừ toán hạng thứ hai khỏi toán hạng thứ nhất | A - B |
+| * | Nhân hai toán hạng | A * B |
+| / | Chia toán hạng thứ nhất cho toán hạng thứ hai | A / B |
+| % | Lấy phần dư của phép chia | A % B |
+| ++ | Tăng giá trị của biến lên 1 | A++ |
+| -- | Giảm giá trị của biến đi 1 | A-- |
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+    var a int = 21
+    var b int = 10
+    var c int
+
+    c = a + b
+    fmt.Printf("Line 1 - Value of c is %d\n", c)
+
+    c = a - b
+    fmt.Printf("Line 2 - Value of c is %d\n", c)
+
+    c = a * b
+    fmt.Printf("Line 3 - Value of c is %d\n", c)
+
+    c = a / b
+    fmt.Printf("Line 4 - Value of c is %d\n", c)
+
+    c = a % b
+    fmt.Printf("Line 5 - Value of c is %d\n", c)
+
+    a++
+    fmt.Printf("Line 6 - Value of a is %d\n", a)
+
+    a--
+    fmt.Printf("Line 7 - Value of a is %d\n", a)
+}
+```
+Kết quả:
+```plaintext
+Line 1 - Value of c is 31
+Line 2 - Value of c is 11
+Line 3 - Value of c is 210
+Line 4 - Value of c is 2
+Line 5 - Value of c is 1
+Line 6 - Value of a is 22
+Line 7 - Value of a is 21
+```
+
+### 2.6.2 Toán Tử So Sánh (Comparison Operators)
+Toán tử so sánh được sử dụng để so sánh hai giá trị. Kết quả của phép so sánh là một giá trị boolean (true hoặc false).
+
+| Toán Tử | Mô Tả | Ví Dụ |
+|---------|-------|-------|
+| == | Bằng nhau | A == B |
+| != | Không bằng nhau | A != B |
+| > | Lớn hơn | A > B |
+| < | Nhỏ hơn | A < B |
+| >= | Lớn hơn hoặc bằng | A >= B |
+| <= | Nhỏ hơn hoặc bằng | A <= B |
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+    var a int = 21
+    var b int = 10
+
+    if a == b {
+        fmt.Printf("Line 1 - a is equal to b\n")
+    } else {
+        fmt.Printf("Line 1 - a is not equal to b\n")
+    }
+
+    if a < b {
+        fmt.Printf("Line 2 - a is less than b\n")
+    } else {
+        fmt.Printf("Line 2 - a is not less than b\n")
+    }
+
+    if a > b {
+        fmt.Printf("Line 3 - a is greater than b\n")
+    } else {
+        fmt.Printf("Line 3 - a is not greater than b\n")
+    }
+
+    a = 5
+    b = 20
+
+    if a <= b {
+        fmt.Printf("Line 4 - a is either less than or equal to b\n")
+    }
+
+    if b >= a {
+        fmt.Printf("Line 5 - b is either greater than or equal to a\n")
+    }
+}
+```
+
+Kết quả:
+
+```plaintext
+Line 1 - a is not equal to b
+Line 2 - a is not less than b
+Line 3 - a is greater than b
+Line 4 - a is either less than or equal to b
+Line 5 - b is either greater than or equal to a
+```
+
+### 2.6.3 Toán Tử Logic (Logical Operators)
+Toán tử logic được sử dụng để kết hợp các biểu thức điều kiện. Kết quả của phép toán logic là một giá trị boolean (true hoặc false).
+
+| Toán Tử | Mô Tả | Ví Dụ |
+|---------|-------|-------|
+| && | Phép AND logic | A && B |
+| \|\| | Phép OR logic | A \|\| B |
+| ! | Phép NOT logic | !A |
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+    var a bool = true
+    var b bool = false
+
+    if a && b {
+        fmt.Printf("Line 1 - Condition is true\n")
+    } else {
+        fmt.Printf("Line 1 - Condition is not true\n")
+    }
+
+    if a || b {
+        fmt.Printf("Line 2 - Condition is true\n")
+    }
+
+    a = false
+    b = true
+
+    if a && b {
+        fmt.Printf("Line 3 - Condition is true\n")
+    } else {
+        fmt.Printf("Line 3 - Condition is not true\n")
+    }
+
+    if !(a && b) {
+        fmt.Printf("Line 4 - Condition is true\n")
+    }
+}
+```
+
+Kết quả:
+
+```plaintext
+Line 1 - Condition is not true
+Line 2 - Condition is true
+Line 3 - Condition is not true
+Line 4 - Condition is true
+```
+
+### 2.6.4 Toán Tử Gán (Assignment Operators)
+Toán tử gán được sử dụng để gán giá trị cho biến. Go hỗ trợ nhiều toán tử gán kết hợp với các toán tử số học.
+
+| Toán Tử | Mô Tả | Ví Dụ |
+|---------|-------|-------|
+| = | Gán giá trị | A = B |
+| += | Cộng và gán | A += B (tương đương với A = A + B) |
+| -= | Trừ và gán | A -= B (tương đương với A = A - B) |
+| *= | Nhân và gán | A *= B (tương đương với A = A * B) |
+| /= | Chia và gán | A /= B (tương đương với A = A / B) |
+| %= | Lấy phần dư và gán | A %= B (tương đương với A = A % B) |
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+    var a int = 21
+    var b int = 10
+    var c int
+
+    c = a + b
+    fmt.Printf("Line 1 - Value of c is %d\n", c)
+
+    c += a
+    fmt.Printf("Line 2 - Value of c is %d\n", c)
+
+    c -= a
+    fmt.Printf("Line 3 - Value of c is %d\n", c)
+
+    c *= a
+    fmt.Printf("Line 4 - Value of c is %d\n", c)
+
+    c /= a
+    fmt.Printf("Line 5 - Value of c is %d\n", c)
+
+    c = 200
+    c %= a
+    fmt.Printf("Line 6 - Value of c is %d\n", c)
+}
+```
+Kết quả:
+
+```plaintext
+Line 1 - Value of c is 31
+Line 2 - Value of c is 52
+Line 3 - Value of c is 31
+Line 4 - Value of c is 651
+Line 5 - Value of c is 31
+Line 6 - Value of c is 11
+```
+### 2.6.5 Toán Tử Bitwise (Bitwise Operators)
+Toán tử bitwise được sử dụng để thực hiện các phép toán trên các bit của số nguyên.
+
+| Toán Tử | Mô Tả | Ví Dụ |
+|---------|-------|-------|
+| & | AND bitwise | A & B |
+| \| | OR bitwise | A \| B |
+| ^ | XOR bitwise | A ^ B |
+| << | Dịch trái | A << 2 |
+| >> | Dịch phải | A >> 2 |
+| &^ | AND NOT bitwise | A &^ B |
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+    var a uint = 60      // 60 = 0011 1100
+    var b uint = 13      // 13 = 0000 1101
+    var c uint = 0
+
+    c = a & b
+    fmt.Printf("Line 1 - Value of c is %d\n", c)
+
+    c = a | b
+    fmt.Printf("Line 2 - Value of c is %d\n", c)
+
+    c = a ^ b
+    fmt.Printf("Line 3 - Value of c is %d\n", c)
+
+    c = a << 2
+    fmt.Printf("Line 4 - Value of c is %d\n", c)
+
+    c = a >> 2
+    fmt.Printf("Line 5 - Value of c is %d\n", c)
+}
+```
+Kết quả:
+
+```plaintext
+Line 1 - Value of c is 12
+Line 2 - Value of c is 61
+Line 3 - Value of c is 49
+Line 4 - Value of c is 240
+Line 5 - Value of c is 15
+```
+
+### 2.6.6 Toán Tử Khác (Miscellaneous Operators)
+Go cũng hỗ trợ một số toán tử khác như toán tử địa chỉ và toán tử con trỏ.
+
+| Toán Tử | Mô Tả | Ví Dụ |
+|---------|-------|-------|
+| & | Trả về địa chỉ của biến | &a |
+| * | Trỏ đến giá trị của biến | *a |
+
+Ví dụ:
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+    var a int = 4
+    var b int
+    var ptr *int
+
+    ptr = &a
+    fmt.Printf("Address of a is %x\n", &a)
+    fmt.Printf("Address stored in ptr is %x\n", ptr)
+    fmt.Printf("Value of *ptr is %d\n", *ptr)
+
+    b = *ptr
+    fmt.Printf("Value of b is %d\n", b)
+}
+```
+Kết quả:
+
+```plaintext
+Address of a is 0xc0000180a0
+Address stored in ptr is 0xc0000180a0
+Value of *ptr is 4
+Value of b is 4
+```
