@@ -1,0 +1,17 @@
+databases:
+  mysql:
+    host: localhost
+    port: 3306
+    username: root
+    password: password
+    database: myapp_development
+  mongo:
+    host: localhost
+    port: 27017
+    username: admin
+    password: secret
+    database: myapp_development
+securities:
+  jwt:
+    secret_key: supersecretkey
+    token_expiry: 3600
