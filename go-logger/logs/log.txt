@@ -1,0 +1,2 @@
+{"level":"INFO","time":"2025-11-30T14:36:20.158+0700","caller":"go-logger/main.go:30","msg":"This is a info message."}
+{"level":"ERROR","time":"2025-11-30T14:36:20.159+0700","caller":"go-logger/main.go:31","msg":"This is a error message."}
